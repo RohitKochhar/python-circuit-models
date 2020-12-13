@@ -18,6 +18,7 @@ If you have a value with a metric prefix, the class can be called with:
 To access that value, you would call Value.f_Value:
 
 `print(Value.i_Value)`
+
 `$ 10000.0`
 
 If a prefix is being specified, make sure it is a valid one, and is listed below:
@@ -31,6 +32,7 @@ If you don't have a number with a metrix prefix, you can still call
 And you can still access the value by:
 
 `print(Value.i_Value)`
+
 `$ 12.345`
 
 This class will automatically detect sig-figs and round accordingly upon creation.
