@@ -1,4 +1,4 @@
-from passiveFilters.metricScale import MetricScale
+from app.filterdesigner.classes.passiveFilters.metricScale import MetricScale
 
 # Metric scale object tests -------------------------------------
 # Test the creation of a 10k object
@@ -118,7 +118,7 @@ del o_TestObject
 
 print("##############   End of MetricScale() tests #####################")
 print("\n##############     Testing RCLowPass()     ######################")
-from passiveFilters.rcLowpassFilter import RCLowpassFilter
+from app.classes.passiveFilters.rcLowpassFilter import RCLowpassFilter
 
 print(f"Test #1: Create a low pass filter with R=10k, c=318n")
 o_TestObject            =   RCLowpassFilter(o_Resistance="10k", o_Capacitance="318n")
