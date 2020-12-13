@@ -2,11 +2,21 @@
     text-align: center;
 }
 
+.filter-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
 .filter-card{
     border: 1px solid green;
-    width: 30%;
+    width: 250px;
+    height: 200px;
     border-radius: 5px;
     padding: 5px;
+    margin: 5px;
 }
 
 .filter-picture{
