@@ -5,4 +5,6 @@ from . import views
 urlpatterns = [
     path('',                    views.index,            name='index'),
     path('rc-lowpass-filter/',  views.RCLowPassDetail,  name='RCLowPassDetail'),
+
+    path('createRCLowPassFilter/', views.createRCLowPassFilter, name='createRCLowPassFilter'),
 ]

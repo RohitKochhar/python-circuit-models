@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'filterdesigner/style.css' %}">
+
+
+<form action="createRCLowPassFilter/" method="post">
+    {% csrf_token %}
+    {{ o_Form }}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}

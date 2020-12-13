@@ -1,8 +1,11 @@
-# sPYce
-Pseudo-SPICE Python Simulator
+![alt text](https://github.com/RohitKochhar/python-circuit-models/blob/main/images/Logo.png?raw=true)
+
+In browser pseudo-SPICE Python circuit response simulator
+
+
 
 ## Classes
-### MetricScale
+### Number
 #### Abstract
 I made this because I am constantly messing up my metric conversions, and I'm hoping that I can simply create a class structure so that I can be more confident with my circuit evaluation
 
@@ -13,7 +16,7 @@ This class is made as a universal data structure to be used by these circuit mod
 
 If you have a value with a metric prefix, the class can be called with:
 
-`Value  = MetricScale("10k")`
+`Value  = Number("10k")`
 
 To access that value, you would call Value.f_Value:
 
@@ -27,7 +30,7 @@ If a prefix is being specified, make sure it is a valid one, and is listed below
 
 If you don't have a number with a metrix prefix, you can still call
 
-`Value  = MetricScale(12.345)`
+`Value  = Number(12.345)`
 
 And you can still access the value by:
 
@@ -49,7 +52,7 @@ A simple class which models the following circuit:
 
 To create a lowpass filter with R=10kOhms and C=318nF
 
-`RCLowPassFilter    = RCLowpassFilter(o_Resistance="10k", o_Capacitance="318n")`
+`RCLowPassFilter    = RCLowPass(o_Resistance="10k", o_Capacitance="318n")`
 
 Where:
     - o_Resistance and o_Capacitance are mandatory input fields that can be either a string specifying a float and metric scale pre-fix or simply a unitary float
@@ -59,3 +62,4 @@ Once created, the following properties of the circuit are accessible:
 - Cut-off Frequency:    `RCLowPassFilter.f_CutOffFrequency`
 - Damping co-efficient: `RCLowPassFilter.f_DampingCoefficient`
 - Resonant Frequency:   `RCLowPassFilter.f_ResonantFrequency`
+- Transfer Function:    `RCLowPassFilter.s_TransferFunction`

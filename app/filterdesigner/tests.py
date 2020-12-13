@@ -48,4 +48,19 @@ class RCLowPassTestCase(TestCase):
         o_TestFilter    = RCLowPass(s_Resistance="56M", s_Capacitance="15n")
         f_Expected      = 0.84
         self.assertEqual(o_TestFilter.f_TimeConstant, f_Expected)
+
+    def test_correct_damping_coefficient(self):
+        o_TestFilter    = RCLowPass(s_Resistance="691.5G", s_Capacitance="14")
+        f_Expected      = Number(s_Input="0.103p").f_Value
+        self.assertEqual(o_TestFilter.f_DampingCoefficient, f_Expected)
+        
+    def test_correct_resonant_frequency(self):
+        o_TestFilter    = RCLowPass(s_Resistance="691.5G", s_Capacitance="14")
+        f_Expected      = Number(s_Input="0.103p").f_Value
+        self.assertEqual(o_TestFilter.f_ResonantFrequency, f_Expected)
+
+    def test_correct_transfer_function(self):
+        o_TestFilter    = RCLowPass(s_Resistance="440k", s_Capacitance="312n")
+        s_Expected      = "7.3/(s+7.3)"
+        self.assertEqual(o_TestFilter.s_TransferFunction, s_Expected)
         
