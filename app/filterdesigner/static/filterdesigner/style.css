@@ -27,3 +27,28 @@
 .filter-name{
     text-align: center;
 }
+
+.display-picture{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.top-half{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.top-left{
+    width: 50%;
+}
+
+.top-right{
+    width: 35%;
+}
+
+.bottom-half{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}

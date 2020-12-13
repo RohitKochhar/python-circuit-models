@@ -1,17 +1,25 @@
 ![alt text](https://github.com/RohitKochhar/python-circuit-models/blob/main/images/Logo.png?raw=true)
 
+# Overview
+
 In browser pseudo-SPICE Python circuit response simulator
 
+![alt text](https://github.com/RohitKochhar/python-circuit-models/blob/main/images/readmepicture.png?raw=true)
 
+# Technical Documentation
 
 ## Classes
+
 ### Number
+
 #### Abstract
+
 I made this because I am constantly messing up my metric conversions, and I'm hoping that I can simply create a class structure so that I can be more confident with my circuit evaluation
 
 Further, by automating tests on the class, I can ensure that this class method is reliable to be used by all circuit models, ensure consistency and uniformness across all the classes that I may implement
 
 #### Usage
+
 This class is made as a universal data structure to be used by these circuit models instead of ints or floats (although these are really just over glorified ints and floats)
 
 If you have a value with a metric prefix, the class can be called with:

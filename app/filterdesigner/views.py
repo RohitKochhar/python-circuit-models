@@ -13,20 +13,22 @@ def index(request):
     }
     return render(request, 'filterdesigner/index.html', ctx)
 
-def RCLowPassDetail(request):
-    return render(request, 'filterdesigner/filterDetail.html')
-
-def createRCLowPassFilter(request):
+def RCLowPassFilterDetail(request):
+    o_Form      = RCLowPassForm()
+    a_Results   = -1
     if request.method == 'POST':
-        o_Form  = RCLowPassForm(request.POST)
+        o_Form = RCLowPassForm(request.POST)
         if o_Form.is_valid():
-            return HttpResponseRedirect('/thanks/')
-        
-    else:
-        o_Form = RCLowPassForm()
+            o_RCLowPassFilter   = RCLowPass(
+               s_Resistance=o_Form["s_ResistorValue"].value(),
+               s_Capacitance=o_Form["s_CapacitorValue"].value()    
+            )
+            a_Results   = [o_RCLowPassFilter.f_Resistance, o_RCLowPassFilter.f_Capacitance, o_RCLowPassFilter.f_CutoffFrequency, o_RCLowPassFilter.f_TimeConstant, o_RCLowPassFilter.f_DampingCoefficient, o_RCLowPassFilter.f_ResonantFrequency, o_RCLowPassFilter.s_TransferFunction]
 
-    ctx ={
-        "o_Form": o_Form
+    ctx = {
+        "o_Form":       o_Form,
+        "a_Results":    a_Results
     }
 
-    return render(request, 'filterdesigner/filterDetail.html', ctx)
+    return render(request, "filterdesigner/RCLowPassFilterDetail.html", ctx)
+            

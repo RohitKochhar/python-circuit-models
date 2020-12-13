@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'filterdesigner/style.css' %}">
+
+<h1 class="content-title">RC Low Pass Filter</h1>
+<hr>
+
+ 
+<div class='top-half'>
+    <div class='top-left'>
+        <form action="/filterdesigner/rc-lowpass-filter/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Resistor Value (Ohms)</label>
+                {{ o_Form.s_ResistorValue }}
+            </div>
+            <div class="form-group">
+                <label>Capacitor Value (Farads)</label>
+                {{ o_Form.s_CapacitorValue }}
+            </div>
+            <input type="submit" value="Simulate">
+        </form>
+    </div>
+    <div class='top-right'>
+        <img class="display-picture" src="https://github.com/RohitKochhar/spyce/blob/main/images/RCLowPass.png?raw=true">
+    </div>
+</div>
+<hr>
+{% if a_Results != -1 %}
+<div class='bottom-half'>
+    <div class='bottom-left'>
+        <h5>Filter Properties:</h5>
+        <ul>
+            <li>Resistance: {{a_Results.0}} Ohms</li>
+            <li>Capacitance: {{a_Results.1}} Farads</li>
+            <li>Cut-off Frequency: {{a_Results.2}} Hz</li>
+            <li>Time Constant: {{a_Results.3}} s</li>
+            <li>Damping Coefficient: {{a_Results.4}} Hz</li>
+            <li>Resonant Frequency: {{a_Results.5}} Hz</li>
+            <li>Transfer Function: {{a_Results.6}}</li>
+        </ul>
+
+    </div>
+    <div class="bottom-right">
+
+    </div>
+</div>
+
+{% endif %}
+
+
+{% endblock %}
