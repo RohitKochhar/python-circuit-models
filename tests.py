@@ -107,6 +107,15 @@ try:
 except ValueError as ve:
     print("Success!")
 
+print(f"Test #12: Unitless string")
+o_TestObject    =   MetricScale("130.2")
+f_Expected      =   float(130.2)
+if o_TestObject.f_Value != f_Expected:
+    print(f"\tTest #1: Failed! Expected {f_Expected} got {o_TestObject.f_Value}")
+else:
+    print("Success!")
+del o_TestObject
+
 print("##############   End of MetricScale() tests #####################")
 print("\n##############     Testing RCLowPass()     ######################")
 from passiveFilters.rcLowpassFilter import RCLowpassFilter
@@ -116,17 +125,49 @@ o_TestObject            =   RCLowpassFilter(o_Resistance="10k", o_Capacitance="3
 f_ExpectedResistance    =   10000
 f_ExpectedCapacitance   =   0.000000318
 
-if o_TestObject.o_Resistance.f_Value != f_ExpectedResistance and o_TestObject.o_Capacitance.f_Value != f_ExpectedCapacitance:
-    print(f"\tFailure: Expected R={f_ExpectedResistance} and C={f_ExpectedCapacitance}, got {o_TestObject.o_Resistance.f_Value} and {o_TestObject.o_Capacitance.f_Value}")
+if o_TestObject.f_Resistance != f_ExpectedResistance and o_TestObject.f_Capacitance != f_ExpectedCapacitance:
+    print(f"\tFailure: Expected R={f_ExpectedResistance} and C={f_ExpectedCapacitance}, got {o_TestObject.o_Resistance} and {o_TestObject.o_Capacitance}")
 else:
     print("Success!")
+del o_TestObject
+
 
 print(f"Test #2: Create a low pass filter with R=5.6M, c=4.2u")
 o_TestObject            =   RCLowpassFilter(o_Resistance="5.6M", o_Capacitance="4.2u")
 f_ExpectedResistance    =   5600000
 f_ExpectedCapacitance   =   0.0000042
 
-if o_TestObject.o_Resistance.f_Value != f_ExpectedResistance and o_TestObject.o_Capacitance.f_Value != f_ExpectedCapacitance:
-    print(f"\tFailure: Expected R={f_ExpectedResistance} and C={f_ExpectedCapacitance}, got {o_TestObject.o_Resistance.f_Value} and {o_TestObject.o_Capacitance.f_Value}")
+if o_TestObject.f_Resistance != f_ExpectedResistance and o_TestObject.f_Capacitance != f_ExpectedCapacitance:
+    print(f"\tFailure: Expected R={f_ExpectedResistance} and C={f_ExpectedCapacitance}, got {o_TestObject.o_Resistance} and {o_TestObject.o_Capacitance}")
 else:
     print("Success!")
+del o_TestObject
+
+print(f"Test #3: Create a low pass filter with R=130.2k, c=93.4n and get the cut-off frequency")
+o_TestObject            =   RCLowpassFilter(o_Resistance="130.2k", o_Capacitance="93.4n")
+f_ExpectedFrequency     =   13.1
+
+if o_TestObject.f_CutoffFrequency != f_ExpectedFrequency:
+    print(f"\tFailure: Expected Fc={f_ExpectedFrequency} and got {o_TestObject.f_CutoffFrequency}")
+else:
+    print(f"Success")
+del o_TestObject
+
+print(f"Test #3: Create a low pass filter with R=433, c=42.9u and get the cut-off frequency")
+o_TestObject            =   RCLowpassFilter(o_Resistance="433", o_Capacitance="42.9u")
+f_ExpectedFrequency     =   8.57
+
+if o_TestObject.f_CutoffFrequency != f_ExpectedFrequency:
+    print(f"\tFailure: Expected Fc={f_ExpectedFrequency} and got {o_TestObject.f_CutoffFrequency}")
+else:
+    print(f"Success")
+
+print(f"Test #3: Create a low pass filter with R=3.4M, c=5.9n and get the time constant")
+o_TestObject            =   RCLowpassFilter(o_Resistance="3.4M", o_Capacitance="5.9n")
+f_Expected              = o_TestObject.f_Capacitance*o_TestObject.f_Resistance
+
+if o_TestObject.f_Tau != f_Expected:
+    print(f"\tFailure: Expected Fc={f_Expected} and got {o_TestObject.f_Tau}")
+else:
+    print(f"Success")
+

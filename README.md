@@ -35,3 +35,25 @@ And you can still access the value by:
 
 This class will automatically detect sig-figs and round accordingly upon creation.
 
+### RCLowPassFilter
+#### Abstract
+
+A simple class which models the following circuit:
+
+![alt text](https://github.com/RohitKochhar/python-circuit-models/blob/main/images/RCLowPass.png?raw=true)
+
+#### Usage
+##### Creation:
+
+To create a lowpass filter with R=10kOhms and C=318nF
+
+`RCLowPassFilter    = RCLowpassFilter(o_Resistance="10k", o_Capacitance="318n")`
+
+Where:
+    - o_Resistance and o_Capacitance are mandatory input fields that can be either a string specifying a float and metric scale pre-fix or simply a unitary float
+
+Once created, the following properties of the circuit are accessible:
+- Time Constant:        `RCLowPassFilter.f_Tau`
+- Cut-off Frequency:    `RCLowPassFilter.f_CutOffFrequency`
+- Damping co-efficient: `RCLowPassFilter.f_DampingCoefficient`
+- Resonant Frequency:   `RCLowPassFilter.f_ResonantFrequency`
