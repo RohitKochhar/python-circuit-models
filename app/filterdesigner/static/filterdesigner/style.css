@@ -1,0 +1,19 @@
+.content-title{
+    text-align: center;
+}
+
+.filter-card{
+    border: 1px solid green;
+    width: 30%;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.filter-picture{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.filter-name{
+    text-align: center;
+}

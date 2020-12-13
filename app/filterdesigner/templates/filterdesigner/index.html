@@ -1,1 +1,31 @@
-<h1>Hello</h1>
+{% extends "base.html" %}
+{% block page_content %}
+
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'filterdesigner/style.css' %}">
+
+
+<h1 class="content-title">Filter Designer</h1>
+<hr>
+<div class="filter-card">
+    <img class="filter-picture" src="https://github.com/RohitKochhar/spyce/blob/main/images/RCLowPass.png?raw=true">
+    <p class='filter-name'><a href="rc-lowpass-filter">RC Low Pass</a></p>
+</div>
+
+<div class="filter-card">
+    <img class="filter-picture" src="https://github.com/RohitKochhar/spyce/blob/main/images/RCHighPass.png?raw=true">
+    <p class='filter-name'><a href="rc-highpass-filter">RC Low Pass</a></p>
+</div>
+
+<div class="filter-card">
+    <img class="filter-picture" src="https://github.com/RohitKochhar/spyce/blob/main/images/RLLowPass.png?raw=true">
+    <p class='filter-name'><a href="rc-lowpass-filter">RL Low Pass</a></p>
+</div>
+
+<div class="filter-card">
+    <img class="filter-picture" src="https://github.com/RohitKochhar/spyce/blob/main/images/RLHighPass.png?raw=true">
+    <p class='filter-name'><a href="rc-highpass-filter">RL Low Pass</a></p>
+</div>
+
+{% endblock %}

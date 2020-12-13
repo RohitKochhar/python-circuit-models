@@ -1,5 +1,5 @@
-# python-circuit-models
-Some Python classes to make circuit modelling a little easier :-)
+# sPYce
+Pseudo-SPICE Python Simulator
 
 ## Classes
 ### MetricScale

@@ -48,3 +48,4 @@ class RCLowPassTestCase(TestCase):
         o_TestFilter    = RCLowPass(s_Resistance="56M", s_Capacitance="15n")
         f_Expected      = 0.84
         self.assertEqual(o_TestFilter.f_TimeConstant, f_Expected)
+        
